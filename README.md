@@ -8,7 +8,7 @@ Inspired by [Carsales' _Mystique_ AI](https://www.itnews.com.au/news/carsales-us
 
 ## Motivations
 
-Made because I needed to blur some photos when selling my car - why do it manually in Photoshop in 20 minutes when you can build an AI to do it for you in 20 hours?
+Made because I needed to blur some photos when selling my car - why do it manually in Photoshop in 20 minutes when you can build an AI to do it for you in 20 hours? 🙌🏻
 
 Beyond that, I wanted to challenge myself to build an AI that can learn from its mistakes and automatically re-train itself. To do this, every photo uploaded to the site provides the opportunity for the user to correct mistakes and improve the AI in the process.
 
