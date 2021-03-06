@@ -4,5 +4,11 @@ Resources:
   npbHelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Properties:
-        Handler: hello-world
+      Handler: hello-world
+      Runtime: go1.x
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get

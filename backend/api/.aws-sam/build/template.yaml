@@ -1,0 +1,14 @@
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  npbHelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: hello-world
+      Runtime: go1.x
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+      CodeUri: npbHelloWorldFunction
