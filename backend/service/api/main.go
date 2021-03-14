@@ -35,11 +35,19 @@ func ImagesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// LabelsHandler is a http.HandlerFunc for the /images endpoint.
+// LabelsHandler is a http.HandlerFunc for the /labels endpoint.
 func LabelsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		objects := getLabels(r)
 		json.NewEncoder(w).Encode(objects)
+	}
+}
+
+// BlurHandler is a http.HandlerFunc for the /blur endpoint.
+func BlurHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodPost {
+		result := blurImage(r)
+		json.NewEncoder(w).Encode(result)
 	}
 }
 
@@ -48,6 +56,7 @@ func RegisterRoutes() {
 	http.Handle("/message", h(MessageHandler))
 	http.Handle("/images", h(ImagesHandler))
 	http.Handle("/labels", h(LabelsHandler))
+	http.Handle("/blur", h(BlurHandler))
 }
 
 // h wraps a http.HandlerFunc and adds common headers.

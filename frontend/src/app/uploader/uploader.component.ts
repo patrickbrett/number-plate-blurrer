@@ -11,6 +11,7 @@ export class UploaderComponent implements OnInit {
   filename = '';
   uploadUrl = '';
   apiBase = 'https://8eawbxzibf.execute-api.ap-southeast-2.amazonaws.com/Prod';
+  labels = [];
 
   constructor() {}
 
@@ -57,7 +58,19 @@ export class UploaderComponent implements OnInit {
   };
 
   loadLabels = async () => {
-    const response = (await axios.get(`${this.apiBase}/labels?filename=${this.filename}`)).data;
+    const response = (
+      await axios.get(`${this.apiBase}/labels?filename=${this.filename}`)
+    ).data;
+
+    this.labels = response;
+    console.log(response);
+  };
+
+  blurImage = async () => {
+    const response = (await axios.post(`${this.apiBase}/blur`, {
+      filename: this.filename,
+      labels: this.labels,
+    })).data;
 
     console.log(response);
   };
