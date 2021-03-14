@@ -1,1 +1,16 @@
-<p>uploader works!</p>
+<button (click)="getUploadUrl()">Get upload url</button>
+<form
+            method="post"
+            encType="multipart/form-data"
+            (submit)="submitImage($event)"
+          >
+            <div>
+              <strong>Choose photo:</strong>
+              <input
+                type="file"
+                accept=".jpg,.jpeg"
+                (change)="setFile($event)"
+              />
+            </div>
+            <div><button type="submit">Submit</button></div>
+          </form>
