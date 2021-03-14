@@ -1,26 +1,26 @@
 package main
 
-import (
-	"context"
-	"fmt"
+// import (
+// 	"context"
+// 	"fmt"
 
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
-)
+// 	"github.com/aws/aws-lambda-go/events"
+// 	"github.com/aws/aws-lambda-go/lambda"
+// )
 
-func HandleRequest(ctx context.Context, event events.APIGatewayProxyRequest) (interface{}, error) {
-	message := fmt.Sprintf("Hello %s!", event.QueryStringParameters["name"])
+// func HandleRequest(ctx context.Context, event events.APIGatewayProxyRequest) (interface{}, error) {
+// 	message := fmt.Sprintf("Hello %s!", event.QueryStringParameters["name"])
 
-	// return {
-	// 	status: 200,
-	// 	body: message
-	// }
+// 	// return {
+// 	// 	status: 200,
+// 	// 	body: message
+// 	// }
 
-	m := map[string]interface{}{"statusCode": 200, "body": message}
+// 	m := map[string]interface{}{"statusCode": 200, "body": message}
 
-	return m, nil
-}
+// 	return m, nil
+// }
 
-func main() {
-	lambda.Start(HandleRequest)
-}
+// func main() {
+// 	lambda.Start(HandleRequest)
+// }
