@@ -8,21 +8,20 @@ import axios from 'axios';
 })
 export class UploaderComponent implements OnInit {
   upload: any = {};
-  uploadUrl: any = '';
+  filename = '';
+  uploadUrl = '';
+  apiBase = 'https://pn53za3axf.execute-api.ap-southeast-2.amazonaws.com/Prod';
 
   constructor() {}
 
   ngOnInit(): void {}
 
   async getUploadUrl() {
-    const response = (
-      await axios.put(
-        'https://pn53za3axf.execute-api.ap-southeast-2.amazonaws.com/Prod/images'
-      )
-    ).data;
+    const response = (await axios.put(`${this.apiBase}/images`)).data;
     console.log(response);
 
     this.uploadUrl = response.uploadUrl;
+    this.filename = response.filename;
   }
 
   setFile = (e) => {
@@ -50,10 +49,16 @@ export class UploaderComponent implements OnInit {
       await axios.put(this.uploadUrl, file, {
         headers: { 'Content-Type': 'image/jpeg' },
       });
-      
+
       console.log('uploaded!');
     } catch (err) {
       console.error(err, err.message);
     }
+  };
+
+  loadLabels = async () => {
+    const response = (await axios.get(`${this.apiBase}/labels?filename=${this.filename}`)).data;
+
+    console.log(response);
   };
 }
