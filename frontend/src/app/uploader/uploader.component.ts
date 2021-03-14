@@ -10,7 +10,7 @@ export class UploaderComponent implements OnInit {
   upload: any = {};
   filename = '';
   uploadUrl = '';
-  apiBase = 'https://pn53za3axf.execute-api.ap-southeast-2.amazonaws.com/Prod';
+  apiBase = 'https://8eawbxzibf.execute-api.ap-southeast-2.amazonaws.com/Prod';
 
   constructor() {}
 
