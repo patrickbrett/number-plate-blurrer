@@ -1,14 +1,43 @@
+AWSTemplateFormatVersion : '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
+Description: An example serverless API written in Golang.
+
 Resources:
-  npbHelloWorldFunction:
+  ApiFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: hello-world
       Runtime: go1.x
+      Handler: api
+      Timeout: 10
       Events:
-        ApiEvent:
+        CatchAllHandler:
           Type: Api
           Properties:
-            Path: /
-            Method: get
+            RestApiId: ApiGatewayApi
+            Path: /{proxy+}
+            Method: ANY
+      Policies:
+        - AmazonS3FullAccess
+  
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'POST, GET, PUT'"
+        AllowOrigin: "'*'"
+  
+  ConfigLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    DependsOn:
+    - ApiGatewayApi
+    - ApiFunction
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ApiFunction
+      Principal: apigateway.amazonaws.com
+
+Outputs:
+  Endpoint:
+    Value: !Sub "https://${ApiGatewayApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
