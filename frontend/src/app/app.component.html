@@ -1,43 +1,56 @@
-<h1>Number Plate Blurrer</h1>
+<div class="container">
+  <h1 class="heading">Number Plate <div class="heading-plate">Blurrer <div class="state-symbol">N · P · B</div></div></h1>
 
-<div>Supports plates from [US] [UK] [AU] [DE] [FR] [CN] and more</div>
-
-<div>
-  <button>Blur my plates!</button>
-  <div>Or choose a demo...</div>
-</div>
-
-<div>
-  <p>Why blur?</p>
-  <div>[BEFORE]</div>
-  <div>[AFTER]</div>
-  <div>
-    <p>
-      When you upload a photo of your car online - to social media, to a blog,
-      or to a sales website - criminals may try to forge your number plate so
-      that fines are directed to you instead of them.
-    </p>
-
-    <p>Blurring your number plate is the easiest way to avoid this.</p>
-
-    <p>
-      Upload a photo to Number Plate Blurrer and it automatically finds where
-      any number plates are, then blurs them. You can fine-tune the position and
-      then download the image with all the plates blurred out.
-    </p>
-
-    <p>
-      Your photos are used to help our algorithm learn how to find number
-      plates, so it’s constantly improving. This is the exact same as many of
-      the big car sales portals - except all the code for our system is
-      completely open source, so you can be sure everything is kept safe and
-      sound. See our full Terms of Service here.
-    </p>
+  <div class="flags-message">
+    <span>Supports plates from</span>
+    <div class="flags">
+      <img src="/assets/flags/united-states.svg" />
+      <img src="/assets/flags/united-kingdom.svg" />
+      <img src="/assets/flags/australia.svg" />
+      <img src="/assets/flags/germany.svg" />
+      <img src="/assets/flags/france.svg" />
+      <img src="/assets/flags/china.svg" />
+    </div>
+    <span>and more</span>
   </div>
-</div>
 
-<div>
-  <app-uploader></app-uploader>
-</div>
+  <div>
+    <button>Blur my plates!</button>
+    <div>Or choose a demo...</div>
+  </div>
 
-<router-outlet></router-outlet>
+  <div class="why-blur">
+    <p>Why blur?</p>
+    <div>[BEFORE]</div>
+    <div>[AFTER]</div>
+    <div class="spiel">
+      <p>
+        When you upload a photo of your car online - to social media, to a blog,
+        or to a sales website - criminals may try to forge your number plate so
+        that fines are directed to you instead of them.
+      </p>
+
+      <p>Blurring your number plate is the easiest way to avoid this.</p>
+
+      <p>
+        Upload a photo to Number Plate Blurrer and it automatically finds where
+        any number plates are, then blurs them. You can fine-tune the position
+        and then download the image with all the plates blurred out.
+      </p>
+
+      <p>
+        Your photos are used to help our algorithm learn how to find number
+        plates, so it’s constantly improving. This is the exact same as many of
+        the big car sales portals - except all the code for our system is
+        completely open source, so you can be sure everything is kept safe and
+        sound. See our full Terms of Service here.
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <app-uploader></app-uploader>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
