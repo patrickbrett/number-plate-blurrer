@@ -14,9 +14,9 @@ Beyond that, I wanted to challenge myself to build an AI that can learn from its
 
 ## See it live
 
-[nowhere just yet - it's not even close to finished!]
+[not just yet - still got a bit of work to do!]
 
-As of 4 March 2021 it's around 10% done.
+As of 21 March 2021 it's around 40% done.
 
 ## Built with
 
